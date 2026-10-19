@@ -1,0 +1,43 @@
+{
+  "name": "dsh-plan-book",
+  "version": "0.1.0",
+  "description": "个人 DeepSeek Harness 工作台的「计划视图」独立包：主机侧把 exit_plan_mode 的 markdown 计划折叠成 session 投影 plan-book；客户端在对话尾放摘要卡、在会话标题栏放常驻入口、并在右侧大框里用标签页铺开正文（正文阅读版 / 流程图 / 汇报稿）。",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "workbench",
+    "dsh-plan-book"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  }
+}
